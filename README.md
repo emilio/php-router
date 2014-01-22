@@ -6,9 +6,14 @@ Lots of them out there, but this is super-simple, and mine ;)
 
 See index.php for a basic example and *remember to use the htaccess provided here*!
 
-### Get the current url
+### Get urls
 ```html
 <a href="<?php echo $router->url('/users/username'); ?>">Username's profile</a>
+```
+
+#### Get the current url
+```php
+$router->url();
 ```
 
 ### Blog example
