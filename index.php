@@ -1,14 +1,17 @@
-<?php use Router\Router;
-include 'src/Route.php';
-include 'src/Router.php';
+<?php
+include 'src/Router/Route.php';
+include 'src/Router/Router.php';
 
-$router = new Router('/php-router');
+$router = new Router\Router('/demos/php-router');
 
 $router->add('/', function() { 
 	global $router;
 	?>
 		<h1>PHP Router</h1>
 		<a href="<?php echo $router->url('/hola-mundo'); ?>">Hola, Mundo!</a>
+		<?php if(isset($_GET['example'])): ?>
+			<pre><code>$_GET['example'] = <?php echo htmlspecialchars($_GET['example']); ?></code></pre>
+		<?php endif; ?>
 	<?php
 });
 
