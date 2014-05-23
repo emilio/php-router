@@ -4,7 +4,7 @@ include 'src/Router/Router.php';
 
 $router = new Router\Router('/demos/php-router');
 
-$router->add('/', function() { 
+$router->add('/', function() {
 	global $router;
 	?>
 		<h1>PHP Router</h1>
@@ -26,6 +26,14 @@ $router->add('/hola-([a-zA-Z-]+)', function($nombre) {
 
 $router->add('/hola/([a-zA-Z-\s]+)', function($nombre) {
 	echo "<h1>Hola, $nombre</h1>";
+});
+
+$router->add('/user(?:/([0-9]+)?)', function($user_id = null) {
+	if( $user_id === null ) {
+		echo "No hay id de usuario";
+	} else {
+		echo "UID = $user_id";
+	}
 });
 
 $router->add('/.*', function() {
