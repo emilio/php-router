@@ -1,6 +1,5 @@
 <?php
-include 'src/Router/Route.php';
-include 'src/Router/Router.php';
+require 'vendor/autoload.php';
 
 $router = new Router\Router('/public');
 
