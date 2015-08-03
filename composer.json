@@ -20,5 +20,8 @@
         "psr-0": {
             "Router": "src"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
     }
 }

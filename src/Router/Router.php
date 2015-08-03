@@ -18,7 +18,8 @@ class Router
      * Constructor
      * @param string $base_path the index url
      */
-    public function __construct($base_path = '') {
+    public function __construct($base_path = '')
+    {
         $this->base_path = $base_path;
         $path = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         $path = substr($path, strlen($base_path));
@@ -32,7 +33,8 @@ class Router
      * @param array|string $methods
      * @return void
      */
-    public function all($expr, $callback, $methods = null) {
+    public function all($expr, $callback, $methods = null)
+    {
         $this->routes[] = new Route($expr, $callback, $methods);
     }
 
@@ -42,7 +44,8 @@ class Router
      * @param mixed $callback
      * @param null|array $methods
      */
-    public function add($expr, $callback, $methods = null) {
+    public function add($expr, $callback, $methods = null)
+    {
         $this->all($expr, $callback, $methods);
     }
 
@@ -51,7 +54,8 @@ class Router
      * @param string $expr
      * @param mixed $callback
      */
-    public function get($expr, $callback) {
+    public function get($expr, $callback)
+    {
         $this->routes[] = new Route($expr, $callback, 'GET');
     }
 
@@ -60,7 +64,8 @@ class Router
      * @param string $expr
      * @param mixed $callback
      */
-    public function post($expr, $callback) {
+    public function post($expr, $callback)
+    {
         $this->routes[] = new Route($expr, $callback, 'POST');
     }
 
@@ -69,7 +74,8 @@ class Router
      * @param string $expr
      * @param mixed $callback
      */
-    public function head($expr, $callback) {
+    public function head($expr, $callback)
+    {
         $this->routes[] = new Route($expr, $callback, 'HEAD');
     }
 
@@ -78,7 +84,8 @@ class Router
      * @param string $expr
      * @param mixed $callback
      */
-    public function put($expr, $callback) {
+    public function put($expr, $callback)
+    {
         $this->routes[] = new Route($expr, $callback, 'PUT');
     }
 
@@ -87,17 +94,21 @@ class Router
      * @param string $expr
      * @param mixed $callback
      */
-    public function delete($expr, $callback) {
+    public function delete($expr, $callback)
+    {
         $this->routes[] = new Route($expr, $callback, 'DELETE');
     }
 
     /**
      * Test all routes until any of them matches
      */
-    public function route() {
-        foreach ($this->routes as $route)
-            if ($route->matches($this->path))
+    public function route()
+    {
+        foreach ($this->routes as $route) {
+            if ($route->matches($this->path)) {
                 return $route->exec();
+            }
+        }
 
         throw new \Exception("No routes matching {$this->path}");
     }
@@ -107,9 +118,11 @@ class Router
      * @param string $path
      * @return string
      */
-    public function url($path = null) {
-        if ($path === null)
+    public function url($path = null)
+    {
+        if ($path === null) {
             $path = $this->path;
+        }
 
         return $this->base_path . $path;
     }
