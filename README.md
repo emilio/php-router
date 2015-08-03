@@ -5,9 +5,17 @@ Lots of them out there, but this is super-simple, and mine ;)
 * [Emilio Cobos](https://github.com/ecoal95)
 * [Bryan Velastegui](https://github.com/shinigamicorei7)
 
-## Usage
+## Composer setup example
+```json
+{
+    "require": {
+        "ecoal95/php-router": "dev-master"
+    }
+}
+```
 
-See index.php for a basic example and *remember to use the htaccess provided here*!
+## Usage
+See the `examples/` to see a basic example and *remember to use the htaccess provided there*!
 
 ### Get urls
 ```html
