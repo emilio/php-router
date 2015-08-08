@@ -32,32 +32,32 @@ $router->url();
 $router = new Router\Router('/blog');
 
 $router->add('/', function() {
-	// Show homepage
+	echo 'homepage';
 });
 
 $router->add('/about', function() {
-	// Show about page
+	echo 'about page';
 });
 
 $router->add('/([0-9]{4})', function($year) {
-	// Show year archives
+	echo $year . ' years active';
 });
 
 $router->add('/([0-9]{4})/([0-9]{2})', function ($year, $month) {
-	// Show month archives
+	echo 'archives from ' . $year . '/' . $month;
 });
 
 $router->add('/(.*)', function($slug) {
 	// For example:
 	if( Article::where('slug', '=', $slug)->first() ) {
-		// Show article
+		echo 'article';
 	} else {
-		// 404
+		echo '404';
 	}
 });
 
 $router->post('/posts/create', function() {
-	// Create a post
+	echo 'post created';
 });
 
 $router->post('/posts/update/([0-9]+)', function($post_id){
