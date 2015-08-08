@@ -63,4 +63,7 @@ $router->post('/posts/create', function() {
 $router->post('/posts/update/([0-9]+)', function($post_id){
 	// Update post with id = $post_id
 });
+
+// compare url with all registered routes
+$router->route();
 ```
