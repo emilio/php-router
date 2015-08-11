@@ -110,7 +110,7 @@ class Router
             }
         }
 
-        throw new \Exception("No routes matching {$this->path}");
+        throw new RouteNotFoundException("No routes matching {$this->path}");
     }
 
     /**
