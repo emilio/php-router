@@ -4,6 +4,7 @@ Lots of them out there, but this is super-simple, and mine ;)
 ## Contributors
 * [Emilio Cobos](https://github.com/ecoal95)
 * [Bryan Velastegui](https://github.com/shinigamicorei7)
+* [Soviut](https://github.com/Soviut)
 
 ## Composer setup example
 ```json
