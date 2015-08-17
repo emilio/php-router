@@ -5,8 +5,8 @@ php:
   - 5.5
   - 5.6
   - hhvm
-  - nightly
 install:
   - composer install
+  - if [[ $TRAVIS_PHP_VERSION =~ ^hhvm ]]; then echo 'xdebug.enable = On' >> /etc/hhvm/php.ini; fi
 script:
   - make tests
