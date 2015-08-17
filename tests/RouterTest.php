@@ -63,4 +63,35 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue(false);
         }
     }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testRedirect()
+    {
+        $_SERVER['REQUEST_URI'] = '/redirect_test';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+
+        $router = new Router();
+
+        $router->redirect('/redirect_test', '/redirected', 301);
+
+        $router->route();
+
+        $this->assertTrue(http_response_code() === 301);
+
+        $headers = xdebug_get_headers();
+
+        $location_header_found = false;
+        foreach ($headers as $header) {
+            if (strpos($header, 'Location:') !== false) {
+                $location_header_found = true;
+                $this->assertTrue(strpos($header, '/redirected') !== false);
+            }
+        }
+
+        if (!$location_header_found) {
+            $this->assertTrue(false);
+        }
+    }
 }

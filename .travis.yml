@@ -1,4 +1,3 @@
-sudo: false
 language: php
 php:
   - 5.4
@@ -7,6 +6,7 @@ php:
   - hhvm
   - nightly
 install:
+  - sudo apt-get install php5-xdebug
   - composer install
 script:
   - make tests
