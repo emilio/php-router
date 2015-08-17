@@ -90,8 +90,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             }
         }
 
-        if (!$location_header_found) {
-            $this->assertTrue(false);
-        }
+        $this->assertTrue($location_header_found);
     }
 }
