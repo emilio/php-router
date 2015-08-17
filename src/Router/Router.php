@@ -134,7 +134,7 @@ class Router
      */
     public function redirect($from_path, $to_path, $code = 302)
     {
-        $this->all($fromPath, function () use ($to_path, $code) {
+        $this->all($from_path, function () use ($to_path, $code) {
             http_response_code($code);
             header("Location: {$to_path}");
             exit;
