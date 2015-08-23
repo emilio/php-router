@@ -1,5 +1,10 @@
 # PHP Router
-Lots of them out there, but this is super-simple, and mine ;)
+
+[![Build Status](https://travis-ci.org/ecoal95/php-router.svg)](https://travis-ci.org/ecoal95/php-router)
+[![Latest Stable Version](https://poser.pugx.org/ecoal95/php-router/v/stable)](https://packagist.org/packages/ecoal95/php-router)
+[![Total Downloads](https://poser.pugx.org/ecoal95/php-router/downloads)](https://packagist.org/packages/ecoal95/php-router)
+[![Latest Unstable Version](https://poser.pugx.org/ecoal95/php-router/v/unstable)](https://packagist.org/packages/ecoal95/php-router)
+[![License](https://poser.pugx.org/ecoal95/php-router/license)](https://packagist.org/packages/ecoal95/php-router)
 
 ## Contributors
 * [Emilio Cobos](https://github.com/ecoal95)

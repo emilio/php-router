@@ -19,11 +19,15 @@
     "autoload": {
         "psr-0": {
             "Router": "src"
-        }
+        },
+        "files" : [
+            "src/php-5.3-support.php"
+        ]
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "2.*",
+        "phpunit/phpunit": "4.8.*",
+        "phpdocumentor/phpdocumentor": "2.8.*",
         "ext-xdebug": "*"
     }
 }
