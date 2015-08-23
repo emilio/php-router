@@ -1,21 +1,25 @@
 <?php
 namespace Router;
 
+/**
+ * The main router class
+ *
+ * @package Router
+ */
 class Router
 {
-    /** Base url */
+    /** @var string Base url */
     private $base_path;
 
-    /** Current relative url */
+    /** @var string Current relative url */
     private $path;
 
-    /**
-     * @var Route[]
-     */
+    /** @var Route[] Currently registered routes */
     public $routes = array();
 
     /**
      * Constructor
+     *
      * @param string $base_path the index url
      */
     public function __construct($base_path = '')
@@ -28,8 +32,9 @@ class Router
 
     /**
      * Add a route
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      * @param array|string $methods
      * @return void
      */
@@ -40,8 +45,9 @@ class Router
 
     /**
      * Alias for all
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      * @param null|array $methods
      */
     public function add($expr, $callback, $methods = null)
@@ -51,8 +57,9 @@ class Router
 
     /**
      * Add a route for GET requests
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      */
     public function get($expr, $callback)
     {
@@ -61,8 +68,9 @@ class Router
 
     /**
      * Add a route for POST requests
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      */
     public function post($expr, $callback)
     {
@@ -71,8 +79,9 @@ class Router
 
     /**
      * Add a route for HEAD requests
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      */
     public function head($expr, $callback)
     {
@@ -81,8 +90,9 @@ class Router
 
     /**
      * Add a route for PUT requests
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      */
     public function put($expr, $callback)
     {
@@ -91,8 +101,9 @@ class Router
 
     /**
      * Add a route for DELETE requests
+     *
      * @param string $expr
-     * @param mixed $callback
+     * @param callable $callback
      */
     public function delete($expr, $callback)
     {
@@ -101,6 +112,8 @@ class Router
 
     /**
      * Test all routes until any of them matches
+     *
+     * @throws RouteNotFoundException if the route doesn't match with any of the registered routes
      */
     public function route()
     {
@@ -115,6 +128,7 @@ class Router
 
     /**
      * Get the current url or the url to a path
+     *
      * @param string $path
      * @return string
      */
@@ -129,8 +143,10 @@ class Router
 
     /**
      * Redirect from one url to another
-     * @param string $fromPath
-     * @param string toPath
+     *
+     * @param string $from_path
+     * @param string $to_path
+     * @param int $code
      */
     public function redirect($from_path, $to_path, $code = 302)
     {

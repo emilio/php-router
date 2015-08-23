@@ -1,19 +1,26 @@
 <?php
 namespace Router;
 
+/**
+ * A class representing a registered route. Each route is composed of a regular expression,
+ * an array of allowed methods, and a callback function to execute if it matches.
+ *
+ * @package Router
+ */
 class Route
 {
-    /** The regular expresion */
+    /** @var string The regular expresion */
     private $expr;
-    /** The callback function */
+    /** @var callable The callback function */
     private $callback;
-    /** The matches of $expr */
+    /** @var array The matches of $expr, which will be the arguments of the callback */
     private $matches;
-    /** Allowed methods for this route */
+    /** @var Allowed methods for this route */
     private $methods = array('GET', 'POST', 'HEAD', 'PUT', 'DELETE');
 
     /**
      * Constructor
+     *
      * @param string $expr regular expresion to test against
      * @param function $callback function executed if route matches
      * @param string|array $methods methods allowed
@@ -31,6 +38,7 @@ class Route
 
     /**
      * See if route matches with path
+     *
      * @param string $path
      * @return boolean
      */
@@ -45,8 +53,9 @@ class Route
     }
 
     /**
-     * Execute the callback. The matches function needs to be called before this and return true
-     * we don't take the first match since it's the path
+     * Execute the callback.
+     * The matches function needs to be called before this and return true.
+     * We don't take the first match since it's the whole path
      */
     public function exec()
     {

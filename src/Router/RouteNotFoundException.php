@@ -1,6 +1,11 @@
 <?php
 namespace Router;
 
+/**
+ * An exception derivation which represents that a route hasn't been found
+ *
+ * @package Router
+ */
 class RouteNotFoundException extends \Exception
 {
     public function __construct($message, $code = 0, Exception $previous = null)
